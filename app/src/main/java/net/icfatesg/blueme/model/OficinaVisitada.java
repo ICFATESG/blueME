@@ -15,11 +15,13 @@ public class OficinaVisitada implements Parcelable {
     private String horaSaida;
     private String IDEVENTO;
     private String IDOFICINA;
+    private String nomeOFICINA;
 
-    public OficinaVisitada() {
+    public OficinaVisitada(String ID) {
+        this.ID = ID;
     }
 
-    public OficinaVisitada(String ID, String nomeEvento, String mac, String horaEntrada, String horaSaida, String IDEVENTO, String IDOFICINA) {
+    public OficinaVisitada(String ID, String nomeEvento, String mac, String horaEntrada, String horaSaida, String IDEVENTO, String IDOFICINA, String nomeOFICINA) {
         this.ID = ID;
         this.nomeEvento = nomeEvento;
         this.mac = mac;
@@ -27,6 +29,7 @@ public class OficinaVisitada implements Parcelable {
         this.horaSaida = horaSaida;
         this.IDEVENTO = IDEVENTO;
         this.IDOFICINA = IDOFICINA;
+        this.nomeOFICINA = nomeOFICINA;
     }
 
     public String getID() {
@@ -85,6 +88,13 @@ public class OficinaVisitada implements Parcelable {
         this.IDOFICINA = IDOFICINA;
     }
 
+    public String getNomeOFICINA() {
+        return nomeOFICINA;
+    }
+
+    public void setNomeOFICINA(String nomeOFICINA) {
+        this.nomeOFICINA = nomeOFICINA;
+    }
 
     @Override
     public int describeContents() {
@@ -100,6 +110,7 @@ public class OficinaVisitada implements Parcelable {
         dest.writeString(this.horaSaida);
         dest.writeString(this.IDEVENTO);
         dest.writeString(this.IDOFICINA);
+        dest.writeString(this.nomeOFICINA);
     }
 
     protected OficinaVisitada(Parcel in) {
@@ -110,6 +121,7 @@ public class OficinaVisitada implements Parcelable {
         this.horaSaida = in.readString();
         this.IDEVENTO = in.readString();
         this.IDOFICINA = in.readString();
+        this.nomeOFICINA = in.readString();
     }
 
     public static final Creator<OficinaVisitada> CREATOR = new Creator<OficinaVisitada>() {

@@ -4,9 +4,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
 import net.icfatesg.blueme.R;
+import net.icfatesg.blueme.model.Evento;
 import net.icfatesg.blueme.model.OficinaVisitada;
 import net.icfatesg.blueme.services.FireBase;
+
+import java.util.ArrayList;
 
 /**
  * Created by minerthal on 12/06/17.
@@ -27,6 +34,8 @@ public class VistadosHolder extends RecyclerView.ViewHolder  {
     }
 
     public void updateUI(OficinaVisitada visitada){
-
+                evento.setText(visitada.getNomeEvento());
+                oficina.setText(visitada.getNomeOFICINA());
+                status.setText("Visitada");
     }
 }

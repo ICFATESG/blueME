@@ -19,7 +19,6 @@ import java.util.ArrayList;
 
 public class FireBase {
     private DatabaseReference mEvento;
-    private DatabaseReference mOficina;
     private DatabaseReference mUsuario;
 
     private FirebaseAuth mAuth;
@@ -34,7 +33,7 @@ public class FireBase {
         this.mAuth =  FirebaseAuth.getInstance();
         this.currentUser = mAuth.getCurrentUser();
         this.mEvento = FirebaseDatabase.getInstance().getReference().child("Evento");
-        this.mUsuario = FirebaseDatabase.getInstance().getReference().child("Usuarios");
+        this.mUsuario = FirebaseDatabase.getInstance().getReference().child("Usuarios").child(currentUser.getUid());
         this.context = context;
 
     }
@@ -55,10 +54,6 @@ public class FireBase {
         return mEvento;
     }
 
-    public DatabaseReference getmOficina() {
-        return mOficina;
-    }
-
     public DatabaseReference getmUsuario() {
         return mUsuario;
     }
@@ -76,6 +71,6 @@ public class FireBase {
     }
     private void keepOnThePhone(){
         this.mEvento.keepSynced(true);
-        this.mOficina.keepSynced(true);
+        this.mUsuario.keepSynced(true);
     }
 }

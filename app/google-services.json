@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "113538853283",
+    "firebase_url": "https://blueme-3acca.firebaseio.com",
+    "project_id": "blueme-3acca",
+    "storage_bucket": "blueme-3acca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113538853283:android:42e5bdcd87fa8fba",
+        "android_client_info": {
+          "package_name": "net.icfatesg.blueme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113538853283-a2tqivvmoruunajo8g939okiq4gbkj8n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.icfatesg.blueme",
+            "certificate_hash": "146cabf6d376858de5efa19cc0edcc3a040680f2"
+          }
+        },
+        {
+          "client_id": "113538853283-564b2cvedv50ik89v2hjgn6o4890jmk4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs3SXULyYTadRSIn-NgI5W6FxR3g0KCME"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113538853283-564b2cvedv50ik89v2hjgn6o4890jmk4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

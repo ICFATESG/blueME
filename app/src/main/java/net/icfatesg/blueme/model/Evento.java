@@ -16,18 +16,21 @@ public class Evento implements Parcelable {
     private String LocalizacaoEvento;
     private String horaInicioEvento;
     private String horaFimEvento;
-    private List<Oficina> oficinas;
 
     public Evento() {
     }
 
-    public Evento(String ID, String nomeEvento, String localizacaoEvento, String horaInicioEvento, String horaFimEvento, List<Oficina> oficinas) {
+    public Evento(String ID, String nomeEvento, String localizacaoEvento, String horaInicioEvento, String horaFimEvento) {
         this.ID = ID;
         this.nomeEvento = nomeEvento;
         LocalizacaoEvento = localizacaoEvento;
         this.horaInicioEvento = horaInicioEvento;
         this.horaFimEvento = horaFimEvento;
-        this.oficinas = oficinas;
+    }
+
+    @Override
+    public String toString() {
+        return nomeEvento+" - "+LocalizacaoEvento;
     }
 
     public String getID() {
@@ -70,14 +73,6 @@ public class Evento implements Parcelable {
         this.horaFimEvento = horaFimEvento;
     }
 
-    public List<Oficina> getOficinas() {
-        return oficinas;
-    }
-
-    public void setOficinas(List<Oficina> oficinas) {
-        this.oficinas = oficinas;
-    }
-
 
     @Override
     public int describeContents() {
@@ -91,7 +86,6 @@ public class Evento implements Parcelable {
         dest.writeString(this.LocalizacaoEvento);
         dest.writeString(this.horaInicioEvento);
         dest.writeString(this.horaFimEvento);
-        dest.writeList(this.oficinas);
     }
 
     protected Evento(Parcel in) {
@@ -100,11 +94,9 @@ public class Evento implements Parcelable {
         this.LocalizacaoEvento = in.readString();
         this.horaInicioEvento = in.readString();
         this.horaFimEvento = in.readString();
-        this.oficinas = new ArrayList<Oficina>();
-        in.readList(this.oficinas, Oficina.class.getClassLoader());
     }
 
-    public static final Parcelable.Creator<Evento> CREATOR = new Parcelable.Creator<Evento>() {
+    public static final Creator<Evento> CREATOR = new Creator<Evento>() {
         @Override
         public Evento createFromParcel(Parcel source) {
             return new Evento(source);
@@ -115,9 +107,4 @@ public class Evento implements Parcelable {
             return new Evento[size];
         }
     };
-
-    @Override
-    public String toString() {
-        return nomeEvento+" - "+LocalizacaoEvento;
-    }
 }

@@ -1,5 +1,6 @@
 package net.icfatesg.blueme.Holders;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -36,6 +37,12 @@ public class VistadosHolder extends RecyclerView.ViewHolder  {
     public void updateUI(OficinaVisitada visitada){
                 evento.setText(visitada.getNomeEvento());
                 oficina.setText(visitada.getNomeOFICINA());
-                status.setText("Visitada");
+                if(visitada.getHoraEntrada().equals("")){
+                    status.setTextColor(Color.parseColor("#3b1212"));
+                    status.setText("Não visitada");
+                }else {
+                    status.setText("Visitada");
+                }
+
     }
 }

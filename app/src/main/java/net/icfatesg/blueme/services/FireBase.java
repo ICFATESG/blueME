@@ -1,5 +1,6 @@
 package net.icfatesg.blueme.services;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,7 +21,11 @@ import java.util.ArrayList;
 public class FireBase {
     private DatabaseReference mEvento;
     private DatabaseReference mUsuario;
-
+    private DatabaseReference mOficinas;
+    private DatabaseReference mOficinasVisitadas;
+    //remove
+    private BluetoothAdapter mBluetoothAdapter;
+    //
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
 
@@ -34,7 +39,24 @@ public class FireBase {
         this.currentUser = mAuth.getCurrentUser();
         this.mEvento = FirebaseDatabase.getInstance().getReference().child("Evento");
         this.mUsuario = FirebaseDatabase.getInstance().getReference().child("Usuarios").child(currentUser.getUid());
+        this.mOficinasVisitadas = mUsuario.child("OficinaVisitada");
+        this.mOficinas = FirebaseDatabase.getInstance().getReference().child("Oficinas");
         this.context = context;
+
+//        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+//
+//        mBluetoothAdapter.enable();
+//        for (int i = 0; i < 10; i++) {
+//            OficinaVisitada ofv = new OficinaVisitada(getmOficinasVisitadas().push().getKey());
+//            ofv.setHoraEntrada("09:42:17");
+//            ofv.setHoraSaida("10:01:12");
+//            ofv.setIDOFICINA("-KmRw9GucLTDkiSaEVzL");
+//            ofv.setMac(mBluetoothAdapter.getAddress());
+//            ofv.setNomeEvento("1º Forúm Tecnologio - FATESG");
+//            ofv.setNomeOFICINA("Aprendendo Python");
+//            mOficinasVisitadas.child(ofv.getID()).setValue(ofv);
+//
+//        }
 
     }
 
@@ -46,9 +68,17 @@ public class FireBase {
         }else{
             this.mUsuario.child(currentUser.getUid()).child(oficinaVisitada.getID()).setValue(oficinaVisitada);
         }
-
     }
 
+    public DatabaseReference getmOficinas() {
+
+        return mOficinas;
+    }
+
+    public DatabaseReference getmOficinasVisitadas() {
+
+        return mOficinasVisitadas;
+    }
 
     public DatabaseReference getmEvento() {
         return mEvento;

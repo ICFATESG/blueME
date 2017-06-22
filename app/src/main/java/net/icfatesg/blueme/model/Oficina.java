@@ -8,8 +8,11 @@ import android.os.Parcelable;
  */
 
 public class Oficina implements Parcelable {
+    private String ID;
+    private String IDEVENTO;
     private String nomeOficina;
     private String palestrante;
+    private String local;
     private String horaInicio;
     private String horaFim;
 
@@ -17,11 +20,30 @@ public class Oficina implements Parcelable {
 
     }
 
-    public Oficina(String nomeOficina, String palestrante, String horaInicio, String horaFim) {
+    public Oficina(String ID, String IDEVENTO, String nomeOficina, String palestrante, String local, String horaInicio, String horaFim) {
+        this.ID = ID;
+        this.IDEVENTO = IDEVENTO;
         this.nomeOficina = nomeOficina;
         this.palestrante = palestrante;
+        this.local = local;
         this.horaInicio = horaInicio;
         this.horaFim = horaFim;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getIDEVENTO() {
+        return IDEVENTO;
+    }
+
+    public void setIDEVENTO(String IDEVENTO) {
+        this.IDEVENTO = IDEVENTO;
     }
 
     public String getNomeOficina() {
@@ -40,6 +62,14 @@ public class Oficina implements Parcelable {
         this.palestrante = palestrante;
     }
 
+    public String getLocal() {
+        return local;
+    }
+
+    public void setLocal(String local) {
+        this.local = local;
+    }
+
     public String getHoraInicio() {
         return horaInicio;
     }
@@ -56,7 +86,6 @@ public class Oficina implements Parcelable {
         this.horaFim = horaFim;
     }
 
-
     @Override
     public int describeContents() {
         return 0;
@@ -64,20 +93,26 @@ public class Oficina implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.ID);
+        dest.writeString(this.IDEVENTO);
         dest.writeString(this.nomeOficina);
         dest.writeString(this.palestrante);
+        dest.writeString(this.local);
         dest.writeString(this.horaInicio);
         dest.writeString(this.horaFim);
     }
 
     protected Oficina(Parcel in) {
+        this.ID = in.readString();
+        this.IDEVENTO = in.readString();
         this.nomeOficina = in.readString();
         this.palestrante = in.readString();
+        this.local = in.readString();
         this.horaInicio = in.readString();
         this.horaFim = in.readString();
     }
 
-    public static final Parcelable.Creator<Oficina> CREATOR = new Parcelable.Creator<Oficina>() {
+    public static final Creator<Oficina> CREATOR = new Creator<Oficina>() {
         @Override
         public Oficina createFromParcel(Parcel source) {
             return new Oficina(source);

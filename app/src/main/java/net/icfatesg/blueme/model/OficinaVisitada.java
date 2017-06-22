@@ -17,6 +17,9 @@ public class OficinaVisitada implements Parcelable {
     private String IDOFICINA;
     private String nomeOFICINA;
 
+    public OficinaVisitada() {
+    }
+
     public OficinaVisitada(String ID) {
         this.ID = ID;
     }

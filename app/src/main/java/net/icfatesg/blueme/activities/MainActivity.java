@@ -1,7 +1,6 @@
 package net.icfatesg.blueme.activities;
 
 import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,14 +9,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import net.icfatesg.blueme.Fragments.OficinasVisitadasFragment;
 import net.icfatesg.blueme.R;
-import net.icfatesg.blueme.services.Bluetooth;
+import net.icfatesg.blueme.services.BluetoothService;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
@@ -58,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        startService(new Intent(this, Bluetooth.class));
+        startService(new Intent(this, BluetoothService.class));
         ButterKnife.bind(this);
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         mBluetoothAdapter.enable();

@@ -19,6 +19,12 @@ public class Evento implements Parcelable {
     private String descricao;
 
     public Evento() {
+        this.ID = "";
+        this.nomeEvento = "";
+        LocalizacaoEvento = "";
+        this.horaInicioEvento = "";
+        this.horaFimEvento = "";
+        this.descricao = "";
     }
 
     public Evento(String ID, String nomeEvento, String localizacaoEvento, String horaInicioEvento, String horaFimEvento,String descricao) {

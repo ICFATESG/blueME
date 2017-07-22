@@ -92,7 +92,7 @@ public class OficinasVisitadasFragment extends Fragment {
                 ArrayAdapter<Evento> adapter = new ArrayAdapter<Evento>(getContext(), R.layout.support_simple_spinner_dropdown_item, eventos);
                 adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
                 spinnerEventos.setAdapter(adapter);
-                listenerSpinner();
+//                listenerSpinner();
             }
 
             @Override

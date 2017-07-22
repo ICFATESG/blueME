@@ -3,11 +3,23 @@ package net.icfatesg.blueme.Fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
+import net.icfatesg.blueme.Adapters.EventoAdapter;
 import net.icfatesg.blueme.R;
+import net.icfatesg.blueme.model.Evento;
+import net.icfatesg.blueme.services.FireBase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +27,11 @@ import net.icfatesg.blueme.R;
  * create an instance of this fragment.
  */
 public class EventosFragment extends Fragment {
+
+
+    private RecyclerView.LayoutManager mLayoutManager;
+    private RecyclerView recyclerView;
+    private List<Evento> eventos;
 
     public EventosFragment() {
     }
@@ -38,7 +55,28 @@ public class EventosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_eventos, container, false);
+        View view = inflater.inflate(R.layout.fragment_eventos, container, false);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        eventos = new ArrayList<>();
+        new FireBase().getmEvento().addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot child: dataSnapshot.getChildren()) {
+                    eventos.add(child.getValue(Evento.class));
+                }
+                recyclerView.setAdapter(new EventoAdapter(eventos));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+        return view;
     }
 
 }

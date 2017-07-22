@@ -18,6 +18,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
+import net.icfatesg.blueme.Fragments.EventosFragment;
 import net.icfatesg.blueme.Fragments.OficinasVisitadasFragment;
 import net.icfatesg.blueme.R;
 import net.icfatesg.blueme.model.OficinaVisitada;
@@ -32,7 +33,6 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
     private BluetoothAdapter mBluetoothAdapter;
     private FragmentManager manager;
     Fragment fragmento;
@@ -49,15 +49,13 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+
                     loadFragmentoInicio();
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
                     loadFRagmentoEventos();
                     return true;
                 case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
                     loadFragmentoConta();
                     return true;
             }
@@ -114,10 +112,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadFragmentoInicio(){
-
+        fragmento = new OficinasVisitadasFragment();
+        manager.beginTransaction().replace(R.id.contentMainReplace,fragmento).commit();
     }
 
     public void loadFRagmentoEventos(){
+        fragmento = new EventosFragment();
+        manager.beginTransaction().replace(R.id.contentMainReplace,fragmento).commit();
 
     }
     public void loadFragmentoConta(){

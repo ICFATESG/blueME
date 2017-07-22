@@ -31,7 +31,7 @@ public class VistadosHolder extends RecyclerView.ViewHolder  {
         evento = (TextView) itemView.findViewById(R.id.textViewEventoNome);
         oficina = (TextView) itemView.findViewById(R.id.textViewEventoOfinica);
         status =(TextView)  itemView.findViewById(R.id.textViewEventoStatus);
-        fireDB = new FireBase(null);
+        fireDB = new FireBase();
     }
 
     public void updateUI(OficinaVisitada visitada){

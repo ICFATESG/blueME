@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -23,6 +25,8 @@ import net.icfatesg.blueme.model.OficinaVisitada;
 import net.icfatesg.blueme.services.FireBase;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,6 +42,8 @@ public class OficinasVisitadasFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private List<Evento> eventos;
+    private ArrayList<OficinaVisitada> oficinaVisitadas;
 
 
 
@@ -57,7 +63,7 @@ public class OficinasVisitadasFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fireDB = new FireBase(getContext());
+        fireDB = new FireBase();
     }
 
     @Override
@@ -79,13 +85,14 @@ public class OficinasVisitadasFragment extends Fragment {
         fireDB.getmEvento().addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                ArrayList<Evento> eventos = new ArrayList<Evento>();
+                eventos = new ArrayList<Evento>();
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     eventos.add(child.getValue(Evento.class));
                 }
                 ArrayAdapter<Evento> adapter = new ArrayAdapter<Evento>(getContext(), R.layout.support_simple_spinner_dropdown_item, eventos);
                 adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
                 spinnerEventos.setAdapter(adapter);
+                listenerSpinner();
             }
 
             @Override
@@ -105,18 +112,17 @@ public class OficinasVisitadasFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setLayoutManager(mLayoutManager);
-
+        try {
         fireDB.getmOficinasVisitadas().addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                ArrayList<OficinaVisitada> oficinaVisitadas = new ArrayList<OficinaVisitada>();
-                for (DataSnapshot child : dataSnapshot.getChildren()) {
-                    oficinaVisitadas.add(child.getValue(OficinaVisitada.class));
-                    int o = 1
-;                }
-                VisitadosAdapter adapter = new VisitadosAdapter(oficinaVisitadas);
-                recyclerView.setAdapter(adapter);
 
+                    oficinaVisitadas = new ArrayList<OficinaVisitada>();
+                    for (DataSnapshot child : dataSnapshot.getChildren()) {
+                        oficinaVisitadas.add(child.getValue(OficinaVisitada.class));
+                    }
+                        VisitadosAdapter adapter = new VisitadosAdapter(oficinaVisitadas);
+                        recyclerView.setAdapter(adapter);
             }
 
             @Override
@@ -124,7 +130,29 @@ public class OficinasVisitadasFragment extends Fragment {
 
             }
         });
+        }catch (Exception e ){
+            Log.d("ERRO",e.getMessage());
+        }
 
+    }
+    private void listenerSpinner(){
+        spinnerEventos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                List<OficinaVisitada> ofv = new ArrayList<OficinaVisitada>();
+                for (OficinaVisitada of: oficinaVisitadas) {
+                    if(eventos.get(position).getID().equals(of.getIDEVENTO())){
+                        ofv.add(of);
+                    }
+                }
+                recyclerView.setAdapter(new VisitadosAdapter(ofv));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
 }

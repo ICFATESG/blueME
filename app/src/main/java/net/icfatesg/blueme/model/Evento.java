@@ -16,16 +16,18 @@ public class Evento implements Parcelable {
     private String LocalizacaoEvento;
     private String horaInicioEvento;
     private String horaFimEvento;
+    private String descricao;
 
     public Evento() {
     }
 
-    public Evento(String ID, String nomeEvento, String localizacaoEvento, String horaInicioEvento, String horaFimEvento) {
+    public Evento(String ID, String nomeEvento, String localizacaoEvento, String horaInicioEvento, String horaFimEvento,String descricao) {
         this.ID = ID;
         this.nomeEvento = nomeEvento;
         LocalizacaoEvento = localizacaoEvento;
         this.horaInicioEvento = horaInicioEvento;
         this.horaFimEvento = horaFimEvento;
+        this.descricao = descricao;
     }
 
     @Override
@@ -73,6 +75,13 @@ public class Evento implements Parcelable {
         this.horaFimEvento = horaFimEvento;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
     @Override
     public int describeContents() {
@@ -86,6 +95,7 @@ public class Evento implements Parcelable {
         dest.writeString(this.LocalizacaoEvento);
         dest.writeString(this.horaInicioEvento);
         dest.writeString(this.horaFimEvento);
+        dest.writeString(this.descricao);
     }
 
     protected Evento(Parcel in) {
@@ -94,6 +104,7 @@ public class Evento implements Parcelable {
         this.LocalizacaoEvento = in.readString();
         this.horaInicioEvento = in.readString();
         this.horaFimEvento = in.readString();
+        this.descricao = in.readString();
     }
 
     public static final Creator<Evento> CREATOR = new Creator<Evento>() {

@@ -11,6 +11,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import net.icfatesg.blueme.model.Evento;
 import net.icfatesg.blueme.model.Oficina;
 import net.icfatesg.blueme.model.OficinaVisitada;
+import net.icfatesg.blueme.model.Usuario;
 
 import java.util.ArrayList;
 
@@ -23,55 +24,20 @@ public class FireBase {
     private DatabaseReference mUsuario;
     private DatabaseReference mOficinas;
     private DatabaseReference mOficinasVisitadas;
-    //remove
-    private BluetoothAdapter mBluetoothAdapter;
-    //
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
 
-    private Context context;
-
     public FireBase() {
-    }
-
-    public FireBase(Context context) {
         this.mAuth =  FirebaseAuth.getInstance();
         this.currentUser = mAuth.getCurrentUser();
         this.mEvento = FirebaseDatabase.getInstance().getReference().child("Evento");
         this.mUsuario = FirebaseDatabase.getInstance().getReference().child("Usuarios").child(currentUser.getUid());
-        this.mOficinasVisitadas = mUsuario.child("OficinaVisitada");
+        this.mOficinasVisitadas = mUsuario.child("oficinaVisitadas");
         this.mOficinas = FirebaseDatabase.getInstance().getReference().child("Oficinas");
-        this.context = context;
 
-//        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-//
-//        mBluetoothAdapter.enable();
-//        for (int i = 0; i < 10; i++) {
-//            OficinaVisitada ofv = new OficinaVisitada(getmOficinasVisitadas().push().getKey());
-//            ofv.setHoraEntrada("09:42:17");
-//            ofv.setHoraSaida("10:01:12");
-//            ofv.setIDOFICINA("-KmRw9GucLTDkiSaEVzL");
-//            ofv.setMac(mBluetoothAdapter.getAddress());
-//            ofv.setNomeEvento("1º Forúm Tecnologio - FATESG");
-//            ofv.setNomeOFICINA("Aprendendo Python");
-//            mOficinasVisitadas.child(ofv.getID()).setValue(ofv);
-//
-//        }
-
-    }
-
-
-    public void saveParticipacao(OficinaVisitada oficinaVisitada){
-        if (oficinaVisitada.getID() != null || oficinaVisitada.getID() != ""){
-            String id = mUsuario.getKey();
-            this.mUsuario.child(currentUser.getUid()).child(id).setValue(oficinaVisitada);
-        }else{
-            this.mUsuario.child(currentUser.getUid()).child(oficinaVisitada.getID()).setValue(oficinaVisitada);
-        }
     }
 
     public DatabaseReference getmOficinas() {
-
         return mOficinas;
     }
 
@@ -96,11 +62,17 @@ public class FireBase {
         return currentUser;
     }
 
-    public Context getContext() {
-        return context;
+    public void updateUsuarioMAC(Usuario usuario){
+        this.mUsuario.setValue(usuario);
     }
+
     private void keepOnThePhone(){
         this.mEvento.keepSynced(true);
         this.mUsuario.keepSynced(true);
     }
+
+    public void inserePaNois(Usuario usuario){
+        this.mUsuario.setValue(usuario);
+    }
+
 }

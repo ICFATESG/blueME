@@ -3,6 +3,9 @@ package net.icfatesg.blueme.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by minerthal on 12/06/17.
  */
@@ -12,15 +15,18 @@ public class Usuario implements Parcelable {
     private String nome;
     private String CPF;
     private String bluetoothMAC;
+    private List<OficinaVisitada> oficinaVisitadas;
 
     public Usuario() {
+        this.oficinaVisitadas = new ArrayList<>();
     }
 
-    public Usuario(String ID, String nome, String CPF, String bluetoothMAC) {
+    public Usuario(String ID, String nome, String CPF, String bluetoothMAC, List<OficinaVisitada> oficinaVisitadas) {
         this.ID = ID;
         this.nome = nome;
         this.CPF = CPF;
         this.bluetoothMAC = bluetoothMAC;
+        this.oficinaVisitadas = oficinaVisitadas;
     }
 
     public String getID() {
@@ -55,6 +61,14 @@ public class Usuario implements Parcelable {
         this.bluetoothMAC = bluetoothMAC;
     }
 
+    public List<OficinaVisitada> getOficinaVisitadas() {
+        return oficinaVisitadas;
+    }
+
+    public void setOficinaVisitadas(List<OficinaVisitada> oficinaVisitadas) {
+        this.oficinaVisitadas = oficinaVisitadas;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -66,6 +80,7 @@ public class Usuario implements Parcelable {
         dest.writeString(this.nome);
         dest.writeString(this.CPF);
         dest.writeString(this.bluetoothMAC);
+        dest.writeTypedList(this.oficinaVisitadas);
     }
 
     protected Usuario(Parcel in) {
@@ -73,6 +88,7 @@ public class Usuario implements Parcelable {
         this.nome = in.readString();
         this.CPF = in.readString();
         this.bluetoothMAC = in.readString();
+        this.oficinaVisitadas = in.createTypedArrayList(OficinaVisitada.CREATOR);
     }
 
     public static final Creator<Usuario> CREATOR = new Creator<Usuario>() {

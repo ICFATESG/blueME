@@ -68,6 +68,11 @@ public class Login extends AppCompatActivity {
         this.startActivity(myIntent);
     }
 
+    @OnClick(R.id.textViewCriarConta) public void criarConta(View view){
+        Intent intent = new Intent(this,CadastroActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onStart() {
         super.onStart();

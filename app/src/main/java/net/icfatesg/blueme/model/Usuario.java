@@ -15,18 +15,18 @@ public class Usuario implements Parcelable {
     private String nome;
     private String CPF;
     private String bluetoothMAC;
+    private String email;
+    private String senha;
     private List<OficinaVisitada> oficinaVisitadas;
 
     public Usuario() {
+        ID = "";
+        nome = "";
+        CPF = "";
+        bluetoothMAC = "";
+        email = "";
+        senha = "";
         this.oficinaVisitadas = new ArrayList<>();
-    }
-
-    public Usuario(String ID, String nome, String CPF, String bluetoothMAC, List<OficinaVisitada> oficinaVisitadas) {
-        this.ID = ID;
-        this.nome = nome;
-        this.CPF = CPF;
-        this.bluetoothMAC = bluetoothMAC;
-        this.oficinaVisitadas = oficinaVisitadas;
     }
 
     public String getID() {
@@ -61,6 +61,22 @@ public class Usuario implements Parcelable {
         this.bluetoothMAC = bluetoothMAC;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     public List<OficinaVisitada> getOficinaVisitadas() {
         return oficinaVisitadas;
     }
@@ -80,6 +96,8 @@ public class Usuario implements Parcelable {
         dest.writeString(this.nome);
         dest.writeString(this.CPF);
         dest.writeString(this.bluetoothMAC);
+        dest.writeString(this.email);
+        dest.writeString(this.senha);
         dest.writeTypedList(this.oficinaVisitadas);
     }
 
@@ -88,6 +106,8 @@ public class Usuario implements Parcelable {
         this.nome = in.readString();
         this.CPF = in.readString();
         this.bluetoothMAC = in.readString();
+        this.email = in.readString();
+        this.senha = in.readString();
         this.oficinaVisitadas = in.createTypedArrayList(OficinaVisitada.CREATOR);
     }
 

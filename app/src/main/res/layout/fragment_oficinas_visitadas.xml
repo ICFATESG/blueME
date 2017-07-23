@@ -27,6 +27,7 @@
             android:text="Selecione um evento" />
 
         <Spinner
+            android:background="@drawable/spinner_border"
             android:id="@+id/spinnerEventos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

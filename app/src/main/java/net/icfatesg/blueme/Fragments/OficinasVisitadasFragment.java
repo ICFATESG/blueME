@@ -73,6 +73,7 @@ public class OficinasVisitadasFragment extends Fragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         updateSpinnerEventos();
         updateRecyclerView();
+//        listenerSpinner();
 
         return view;
     }
@@ -90,7 +91,7 @@ public class OficinasVisitadasFragment extends Fragment {
                 ArrayAdapter<Evento> adapter = new ArrayAdapter<Evento>(getContext(), R.layout.support_simple_spinner_dropdown_item, eventos);
                 adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
                 spinnerEventos.setAdapter(adapter);
-//                listenerSpinner();
+
             }
 
             @Override
@@ -137,6 +138,7 @@ public class OficinasVisitadasFragment extends Fragment {
         spinnerEventos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
                 List<OficinaVisitada> ofv = new ArrayList<OficinaVisitada>();
                 for (OficinaVisitada of: oficinaVisitadas) {
                     if(eventos.get(position).getID().equals(of.getIDEVENTO())){

@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 import net.icfatesg.blueme.Fragments.EventosFragment;
+import net.icfatesg.blueme.Fragments.MinhaContaFragment;
 import net.icfatesg.blueme.Fragments.OficinasVisitadasFragment;
 import net.icfatesg.blueme.R;
 import net.icfatesg.blueme.model.OficinaVisitada;
@@ -122,7 +123,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void loadFragmentoConta(){
-
+        fragmento = new MinhaContaFragment();
+        manager.beginTransaction().replace(R.id.contentMainReplace,fragmento).commit();
     }
 
     @Override

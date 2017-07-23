@@ -1,7 +1,6 @@
 package net.icfatesg.blueme.Fragments;
 
 
-import android.bluetooth.BluetoothAdapter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,7 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
-import net.icfatesg.blueme.Adapters.VisitadosAdapter;
+import net.icfatesg.blueme.Adapters.VisitadoAdapter;
 import net.icfatesg.blueme.R;
 import net.icfatesg.blueme.model.Evento;
 import net.icfatesg.blueme.model.OficinaVisitada;
@@ -26,7 +25,6 @@ import net.icfatesg.blueme.services.FireBase;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -121,7 +119,7 @@ public class OficinasVisitadasFragment extends Fragment {
                     for (DataSnapshot child : dataSnapshot.getChildren()) {
                         oficinaVisitadas.add(child.getValue(OficinaVisitada.class));
                     }
-                        VisitadosAdapter adapter = new VisitadosAdapter(oficinaVisitadas);
+                        VisitadoAdapter adapter = new VisitadoAdapter(oficinaVisitadas);
                         recyclerView.setAdapter(adapter);
             }
 
@@ -145,7 +143,7 @@ public class OficinasVisitadasFragment extends Fragment {
                         ofv.add(of);
                     }
                 }
-                recyclerView.setAdapter(new VisitadosAdapter(ofv));
+                recyclerView.setAdapter(new VisitadoAdapter(ofv));
             }
 
             @Override

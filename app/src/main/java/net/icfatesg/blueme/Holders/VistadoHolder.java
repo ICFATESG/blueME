@@ -20,13 +20,13 @@ import java.util.ArrayList;
  * Created by minerthal on 12/06/17.
  */
 
-public class VistadosHolder extends RecyclerView.ViewHolder  {
+public class VistadoHolder extends RecyclerView.ViewHolder  {
     private TextView evento;
     private TextView oficina;
     private TextView status;
     private FireBase fireDB;
 
-    public VistadosHolder(View itemView) {
+    public VistadoHolder(View itemView) {
         super(itemView);
         evento = (TextView) itemView.findViewById(R.id.textViewEventoNome);
         oficina = (TextView) itemView.findViewById(R.id.textViewEventoOfinica);

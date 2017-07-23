@@ -1,11 +1,13 @@
 package net.icfatesg.blueme.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -15,8 +17,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import net.icfatesg.blueme.Adapters.EventoAdapter;
 import net.icfatesg.blueme.R;
+import net.icfatesg.blueme.activities.OficinasActivity;
 import net.icfatesg.blueme.model.Evento;
 import net.icfatesg.blueme.services.FireBase;
+import net.icfatesg.blueme.services.RecyclerItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +71,17 @@ public class EventosFragment extends Fragment {
                     eventos.add(child.getValue(Evento.class));
                 }
                 recyclerView.setAdapter(new EventoAdapter(eventos));
+
+                recyclerView.addOnItemTouchListener(
+                        new RecyclerItemClickListener(getContext(), new RecyclerItemClickListener.OnItemClickListener() {
+                            @Override public void onItemClick(View view, int position) {
+                                Intent intent = new Intent(getActivity(),OficinasActivity.class);
+                                intent.putExtra("EVENTO",eventos.get(position));
+                                startActivity(intent);
+                            }
+                        })
+                );
+
             }
 
             @Override
@@ -74,6 +89,8 @@ public class EventosFragment extends Fragment {
 
             }
         });
+
+
 
 
         return view;

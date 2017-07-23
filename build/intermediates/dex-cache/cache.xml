@@ -142,7 +142,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="6c254a94d6273d0fe6cdf05eecb0252051c79d04">
+        sha1="7ff86121d8958c8075faddc6925d63ea3773ca94">
         <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_e9f33f8caf4a34bd6ed19dab13bcd526ee7f8d25/classes.dex" />
     </item>
     <item

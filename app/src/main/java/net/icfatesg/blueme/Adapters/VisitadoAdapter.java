@@ -5,11 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import net.icfatesg.blueme.Holders.VistadosHolder;
+import net.icfatesg.blueme.Holders.VistadoHolder;
 import net.icfatesg.blueme.R;
 import net.icfatesg.blueme.model.OficinaVisitada;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -17,22 +15,22 @@ import java.util.List;
  * Created by minerthal on 12/06/17.
  */
 
-public class VisitadosAdapter extends RecyclerView.Adapter<VistadosHolder>{
+public class VisitadoAdapter extends RecyclerView.Adapter<VistadoHolder>{
 
     private List<OficinaVisitada> oficinaVisitadas;
 
-    public VisitadosAdapter(List<OficinaVisitada> oficinaVisitadas) {
+    public VisitadoAdapter(List<OficinaVisitada> oficinaVisitadas) {
         this.oficinaVisitadas = oficinaVisitadas;
     }
 
     @Override
-    public VistadosHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public VistadoHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View card_generic = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_content_visitados, parent,false);
-        return new VistadosHolder(card_generic);
+        return new VistadoHolder(card_generic);
     }
 
     @Override
-    public void onBindViewHolder(VistadosHolder holder, int position) {
+    public void onBindViewHolder(VistadoHolder holder, int position) {
         holder.updateUI(oficinaVisitadas.get(position));
     }
 

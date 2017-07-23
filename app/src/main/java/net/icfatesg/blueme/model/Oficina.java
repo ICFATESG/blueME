@@ -17,7 +17,13 @@ public class Oficina implements Parcelable {
     private String horaFim;
 
     public Oficina() {
-
+        ID = "";
+        IDEVENTO = "";
+        nomeOficina = "";
+        palestrante = "";
+        local = "";
+        horaInicio = "";
+        horaFim = "";
     }
 
     public Oficina(String ID, String IDEVENTO, String nomeOficina, String palestrante, String local, String horaInicio, String horaFim) {

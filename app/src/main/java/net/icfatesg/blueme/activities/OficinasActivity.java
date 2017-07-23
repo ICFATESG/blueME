@@ -29,33 +29,33 @@ public class OficinasActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        try {
-        nomeEvento = (TextView) findViewById(R.id.textViewEventoNome);
-        nomeEvento.setText(evento.getNomeEvento());
-
-        setContentView(R.layout.activity_oficinas);
-        fireBase = new FireBase();
         evento = getIntent().getParcelableExtra("EVENTO");
-        recyclerView = (RecyclerView) findViewById(R.id.OficinasRecycler);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        try {
+            setContentView(R.layout.activity_oficinas);
+            nomeEvento = (TextView) findViewById(R.id.textViewEventoNomeB);
+            fireBase = new FireBase();
 
-        // Seta as oficinas no recycler view
-        fireBase.getmOficinas().child(evento.getID()).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                List<Oficina> oficinas = new ArrayList<Oficina>();
-                for (DataSnapshot child: dataSnapshot.getChildren()){
-                    oficinas.add(child.getValue(Oficina.class));
+            nomeEvento.setText(evento.getNomeEvento());
+            recyclerView = (RecyclerView) findViewById(R.id.OficinasRecycler);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+            // Seta as oficinas no recycler view
+            fireBase.getmOficinas().child(evento.getID()).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    List<Oficina> oficinas = new ArrayList<Oficina>();
+                    for (DataSnapshot child: dataSnapshot.getChildren()){
+                        oficinas.add(child.getValue(Oficina.class));
+                    }
+                    recyclerView.setAdapter(new OficinaAdapter(oficinas));
                 }
-                recyclerView.setAdapter(new OficinaAdapter(oficinas));
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
 
         }catch (Exception e){
             Log.d("ERRO",e.getMessage());

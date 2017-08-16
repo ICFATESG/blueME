@@ -5,8 +5,11 @@ import android.content.Context;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import net.icfatesg.blueme.model.Evento;
 import net.icfatesg.blueme.model.Oficina;
@@ -14,6 +17,7 @@ import net.icfatesg.blueme.model.OficinaVisitada;
 import net.icfatesg.blueme.model.Usuario;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by minerthal on 12/06/17.
@@ -37,22 +41,6 @@ public class FireBase {
 
     }
 
-    public DatabaseReference getmOficinas() {
-        return mOficinas;
-    }
-
-    public DatabaseReference getmOficinasVisitadas() {
-
-        return mOficinasVisitadas;
-    }
-
-    public DatabaseReference getmEvento() {
-        return mEvento;
-    }
-
-    public DatabaseReference getmUsuario() {
-        return mUsuario;
-    }
 
     public FirebaseAuth getmAuth() {
         return mAuth;
@@ -62,7 +50,7 @@ public class FireBase {
         return currentUser;
     }
 
-    public void updateUsuarioMAC(Usuario usuario){
+    public void updateUsuario(Usuario usuario){
         this.mUsuario.setValue(usuario);
     }
 
@@ -71,8 +59,84 @@ public class FireBase {
         this.mUsuario.keepSynced(true);
     }
 
-    public void inserePaNois(Usuario usuario){
-        this.mUsuario.setValue(usuario);
+    public void getOficinas(final CallbackOficinas callback){
+        this.mOficinas.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List<Oficina> oficinas = new ArrayList<Oficina>();
+                for (DataSnapshot child: dataSnapshot.getChildren()) {
+                    oficinas.add(child.getValue(Oficina.class));
+                }
+                callback.getOficinas(oficinas);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+    public void getOfificasVisitadas(final CallbackOficinasVisitadas callback){
+        this.mOficinasVisitadas.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List<OficinaVisitada> oficinas = new ArrayList<OficinaVisitada>();
+                for (DataSnapshot child: dataSnapshot.getChildren()) {
+                    oficinas.add(child.getValue(OficinaVisitada.class));
+                }
+                callback.getOficinasVisitadas(oficinas);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void getEventos(final CallbackEventos callback){
+        this.mEvento.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List<Evento> objects = new ArrayList<Evento>();
+                for (DataSnapshot child: dataSnapshot.getChildren()) {
+                    objects.add(child.getValue(Evento.class));
+                }
+                callback.getEventos(objects);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+    public void getUsuario(final CallbackUsuario callback){
+        this.mUsuario.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                callback.getUsuario(dataSnapshot.getValue(Usuario.class));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+
+    public interface CallbackOficinas{
+        void getOficinas(List<Oficina> oficinaList);
+    }
+    public interface CallbackOficinasVisitadas{
+        void getOficinasVisitadas(List<OficinaVisitada> oficinaVisitadaList);
+    }
+    public interface CallbackEventos{
+        void getEventos(List<Evento> eventoList );
+    }
+    public interface CallbackUsuario{
+        void getUsuario(Usuario usuario);
     }
 
 }

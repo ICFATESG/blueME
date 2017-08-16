@@ -40,8 +40,6 @@ public class OficinasVisitadasFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private List<Evento> eventos;
-    private ArrayList<OficinaVisitada> oficinaVisitadas;
 
 
 
@@ -81,24 +79,41 @@ public class OficinasVisitadasFragment extends Fragment {
 
 
     private void updateSpinnerEventos(){
-        fireDB.getmEvento().addValueEventListener(new ValueEventListener() {
+
+        fireDB.getEventos(new FireBase.CallbackEventos() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                eventos = new ArrayList<Evento>();
-                for (DataSnapshot child : dataSnapshot.getChildren()) {
-                    eventos.add(child.getValue(Evento.class));
-                }
-                ArrayAdapter<Evento> adapter = new ArrayAdapter<Evento>(getContext(), R.layout.support_simple_spinner_dropdown_item, eventos);
+            public void getEventos(final List<Evento> eventoList) {
+                ArrayAdapter<Evento> adapter = new ArrayAdapter<Evento>(getContext(), R.layout.support_simple_spinner_dropdown_item, eventoList);
                 adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
                 spinnerEventos.setAdapter(adapter);
+                // Listener Spinner
+                spinnerEventos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, final int position, long id) {
+                        // para filtrar
+                        fireDB.getOfificasVisitadas(new FireBase.CallbackOficinasVisitadas() {
+                            @Override
+                            public void getOficinasVisitadas(List<OficinaVisitada> oficinaVisitadaList) {
+                                List<OficinaVisitada> ofv = new ArrayList<OficinaVisitada>();
+                                for (OficinaVisitada of: oficinaVisitadaList) {
+                                    if(eventoList.get(position).getID().equals(of.getIDEVENTO())){
+                                        ofv.add(of);
+                                    }
+                                }
+                                recyclerView.setAdapter(new VisitadoAdapter(ofv));
+                            }
+                        });
 
-            }
+                    }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
 
+                    }
+                });
             }
         });
+
 
     }
 
@@ -112,47 +127,19 @@ public class OficinasVisitadasFragment extends Fragment {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setLayoutManager(mLayoutManager);
         try {
-        fireDB.getmOficinasVisitadas().addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
 
-                    oficinaVisitadas = new ArrayList<OficinaVisitada>();
-                    for (DataSnapshot child : dataSnapshot.getChildren()) {
-                        oficinaVisitadas.add(child.getValue(OficinaVisitada.class));
-                    }
-                        VisitadoAdapter adapter = new VisitadoAdapter(oficinaVisitadas);
-                        recyclerView.setAdapter(adapter);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+            fireDB.getOfificasVisitadas(new FireBase.CallbackOficinasVisitadas() {
+                @Override
+                public void getOficinasVisitadas(List<OficinaVisitada> oficinaVisitadaList) {
+                    VisitadoAdapter adapter = new VisitadoAdapter(oficinaVisitadaList);
+                    recyclerView.setAdapter(adapter);
+                }
+            });
         }catch (Exception e ){
             Log.d("ERRO",e.getMessage());
         }
 
     }
-    private void listenerSpinner(){
-        spinnerEventos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                List<OficinaVisitada> ofv = new ArrayList<OficinaVisitada>();
-                for (OficinaVisitada of: oficinaVisitadas) {
-                    if(eventos.get(position).getID().equals(of.getIDEVENTO())){
-                        ofv.add(of);
-                    }
-                }
-                recyclerView.setAdapter(new VisitadoAdapter(ofv));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-    }
 
 }

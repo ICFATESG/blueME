@@ -41,22 +41,12 @@ public class OficinasActivity extends AppCompatActivity {
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
             // Seta as oficinas no recycler view
-            fireBase.getmOficinas().child(evento.getID()).addListenerForSingleValueEvent(new ValueEventListener() {
+            fireBase.getOficinas(new FireBase.CallbackOficinas() {
                 @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    List<Oficina> oficinas = new ArrayList<Oficina>();
-                    for (DataSnapshot child: dataSnapshot.getChildren()){
-                        oficinas.add(child.getValue(Oficina.class));
-                    }
-                    recyclerView.setAdapter(new OficinaAdapter(oficinas));
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
+                public void getOficinas(List<Oficina> oficinaList) {
+                    recyclerView.setAdapter(new OficinaAdapter(oficinaList));
                 }
             });
-
         }catch (Exception e){
             Log.d("ERRO",e.getMessage());
         }

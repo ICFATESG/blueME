@@ -2,130 +2,103 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/home/harlock/.android/build-cache/bc82d42451791ab8c7a8497849701006966d9855/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a7423721bacbc6cd91845f739253a0c3b8f5d26a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/harlock/.android/build-cache/907e3f899106ac7db0037cb042b544b247cee98f/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="3f0a85e6000998ac322ddd50750e8cf91601a84b">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5f64d8013e2e3f01899f5e1c43fd2b4b95d74700/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/home/harlock/.android/build-cache/df258feede9c1092f4ace7d4ac0491026960be07/output/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="da832806828ba407284c0c4b1d87b8f9ed9f2520">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_fa1e57d4765b1c55067a97fe18bab402cd8e289d/classes.dex" />
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_fa1e57d4765b1c55067a97fe18bab402cd8e289d.jar" />
     </item>
     <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/home/harlock/.android/build-cache/3646d445681a79096e840b219d07e391e280b414/output/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="900a290779cdb4eb2e63b6f7806fd9f30ce4f60d">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_082d60085fa66689c7b0dcea6d962a7993d78e78/classes.dex" />
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_082d60085fa66689c7b0dcea6d962a7993d78e78.jar" />
     </item>
     <item
-        is-multidex="true"
+        is-multidex="false"
+        jar="/home/harlock/.android/build-cache/bc82d42451791ab8c7a8497849701006966d9855/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_a7423721bacbc6cd91845f739253a0c3b8f5d26a.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/harlock/.android/build-cache/e969387bf6c5d46905c02dd8c1f8fc363378fac7/output/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a1553bc4c4ad9ca815f84bf4bd75bdddec69466b/classes.dex" />
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_a1553bc4c4ad9ca815f84bf4bd75bdddec69466b.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/harlock/.android/build-cache/29775f1ecc93e71a2da30bcd0996dc2f0a8cf29f/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="69e74a8b1cbf5b8ee0fc0cca6bab1ac6c45efef8">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_011f4aa269d0f35a7f88dc80f6fb6eb3b3913db7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/home/harlock/.android/build-cache/00c44d8d479cc3351e61f4bbad6b5be9910c9c38/output/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="de24d8023e8da79f30bee46b298f606e5e758432">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ba75be6ceae938fdc30d568ce3c3d9b686a04549/classes.dex" />
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_ba75be6ceae938fdc30d568ce3c3d9b686a04549.jar" />
     </item>
     <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/home/harlock/.android/build-cache/828d07a1902f820563be855a38fcab90c0e563c4/output/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ce5df4083dc18f9f150f6ac4473db4ef6b7aa97c/classes.dex" />
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_ce5df4083dc18f9f150f6ac4473db4ef6b7aa97c.jar" />
     </item>
     <item
-        is-multidex="true"
+        is-multidex="false"
+        jar="/home/harlock/.android/build-cache/29775f1ecc93e71a2da30bcd0996dc2f0a8cf29f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="69e74a8b1cbf5b8ee0fc0cca6bab1ac6c45efef8">
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_011f4aa269d0f35a7f88dc80f6fb6eb3b3913db7.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/harlock/.android/build-cache/59737112d2d7e3782dd96842ddec7de2d67b8f17/output/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d16dc339e6187195dcf67d568cdd193207f28211/classes.dex" />
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_d16dc339e6187195dcf67d568cdd193207f28211.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/harlock/Android/Sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.2_35e5770323fff648291de34bf482b1eb950f98f4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/home/harlock/.android/build-cache/2b699078500fb1292618fef7ce8c1b9f8238e1ee/output/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="7b3eaf755284fb08a6d616a55fbb07dc3917d5e7">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b28178fefba851ac2beb36bd7fe7ca235493ac6e/classes.dex" />
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_b28178fefba851ac2beb36bd7fe7ca235493ac6e.jar" />
     </item>
     <item
-        is-multidex="true"
+        is-multidex="false"
+        jar="/home/harlock/Android/Sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_35e5770323fff648291de34bf482b1eb950f98f4.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/harlock/.android/build-cache/a548cfa815b6f0359dbe5db42d3112a21929d2f4/output/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_fbc4bfda46a2247ee1b6da4dd8c1f76aca8511e5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/harlock/.android/build-cache/39cb35b811101764d05fba58bdc9bc2ebfd104e7/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="8f83a631abfdb790591a720e0cfb5f41329831c3">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0077e1983130f7d262b7c1ea7104460e09b4576f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/harlock/.android/build-cache/74ead38b42d8e9f7bd472c742fd83261b5ca6669/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="5c1f80f62ccad560edcd6609fc75f385cf7cb45a">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5bdecd60939c3be09711dad893408ef14bfae9eb/classes.dex" />
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_fbc4bfda46a2247ee1b6da4dd8c1f76aca8511e5.jar" />
     </item>
     <item
         is-multidex="true"
@@ -133,7 +106,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_e16c0c29a8fbdca92cdc0961ae4c46af7ae8d86e/classes.dex" />
     </item>
     <item
@@ -142,134 +115,161 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="6c05d287ccc4b1d1fa482d7758259e629e1a2e48">
+        sha1="3ceff063ffa2836905e0741e5a5bf97048d9834e">
         <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_e9f33f8caf4a34bd6ed19dab13bcd526ee7f8d25/classes.dex" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/harlock/.android/build-cache/c8b040704035f7c29992bb4ea3c41e34d30c9dde/output/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/home/harlock/.android/build-cache/39cb35b811101764d05fba58bdc9bc2ebfd104e7/output/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_05aed47015c9494d4d04aad223dc194c00b29466/classes.dex" />
+        sha1="8f83a631abfdb790591a720e0cfb5f41329831c3">
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_0077e1983130f7d262b7c1ea7104460e09b4576f.jar" />
     </item>
     <item
-        is-multidex="true"
+        is-multidex="false"
+        jar="/home/harlock/.android/build-cache/74ead38b42d8e9f7bd472c742fd83261b5ca6669/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="5c1f80f62ccad560edcd6609fc75f385cf7cb45a">
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_5bdecd60939c3be09711dad893408ef14bfae9eb.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/harlock/.android/build-cache/b3db311f07c3122c1c38025c79d722a9d3103626/output/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="d79c575e1d97b0298746a4c032a0c1dc201c2f82">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d48caf682cbd52ca71fd957e59be78e157fd97d8/classes.dex" />
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_d48caf682cbd52ca71fd957e59be78e157fd97d8.jar" />
     </item>
     <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/home/harlock/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.6.0/48efa6f14074e1a6b16e02ac05eba3fc5c7c7ec8/butterknife-annotations-8.6.0.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="48efa6f14074e1a6b16e02ac05eba3fc5c7c7ec8">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/butterknife-annotations-8.6.0_7c62a16923990893ac80249d2c54cee776bd806a/classes.dex" />
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/butterknife-annotations-8.6.0_7c62a16923990893ac80249d2c54cee776bd806a.jar" />
     </item>
     <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/home/harlock/.android/build-cache/e9dadd77d80f36fc184c567dd779dc45b8b3ac08/output/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="150252b33b00274cc868578ade018fda0d43a3eb">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e03c520ee523d0dd553d049411d51a0656f7ad21/classes.dex" />
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_e03c520ee523d0dd553d049411d51a0656f7ad21.jar" />
     </item>
     <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/home/harlock/.android/build-cache/e4112777a749c7d80f6cfc7cce2af2ea7dd164c2/output/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4a40bef1166a915fcf8894520262f5b486894dab/classes.dex" />
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_4a40bef1166a915fcf8894520262f5b486894dab.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/harlock/.android/build-cache/5bba7167d16398a993227d28ed0905e09b9c1254/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5f6839e256f6b672c1c4cc34c38cae01694c09d9/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/harlock/.android/build-cache/7cd0784db43c06df86af055f559b7a2e6a564e03/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_dfe297eb74a27147e93b82c91b964e9dbf791b88/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/harlock/.android/build-cache/19d2bac9a7e68905cf4ba1f0dc87fd2dc607a13e/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="0a534044236cf81b002604643d23e7ca56bd1ee0">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b52908875acc8ed153825088084203d0a8502e2a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/home/harlock/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.3.1_ba8c27cc0897229def9669d4a7c69265cf44ce0d/classes.dex" />
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_ba8c27cc0897229def9669d4a7c69265cf44ce0d.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/harlock/.android/build-cache/ebf02cb7f3b40e5e451128a1c85e9933c68423a8/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b73d5ac24bb3503a34dcf61755a716df6d8340b9/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/harlock/.android/build-cache/bb52f45ddaea04eee5af53851a26df8975ff2425/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3ad574643ff135dd3f71681f3eebda4e8782608b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/harlock/.android/build-cache/a41ae5e626d3bd77106897a71978e1981d037f05/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="be587097e648eabfb7f9eca23ab03369894e2d5d">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f4ccabc14933233d534a375ae9f92626fda2c4c9/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/home/harlock/.android/build-cache/b69329ae6b7f40fed87326d8830bca3dd62f60a5/output/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="1108575c7dc7b7f5b378b3290ac90de81a9b8830">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3c0f98621cf5b74c4a1d94cfd8b41ef130685095/classes.dex" />
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_3c0f98621cf5b74c4a1d94cfd8b41ef130685095.jar" />
     </item>
     <item
-        is-multidex="true"
+        is-multidex="false"
+        jar="/home/harlock/.android/build-cache/5bba7167d16398a993227d28ed0905e09b9c1254/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_5f6839e256f6b672c1c4cc34c38cae01694c09d9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/harlock/.android/build-cache/7cd0784db43c06df86af055f559b7a2e6a564e03/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_dfe297eb74a27147e93b82c91b964e9dbf791b88.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/harlock/.android/build-cache/907e3f899106ac7db0037cb042b544b247cee98f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3f0a85e6000998ac322ddd50750e8cf91601a84b">
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_5f64d8013e2e3f01899f5e1c43fd2b4b95d74700.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/harlock/.android/build-cache/dcaf6685a18d49493b5b2c549979a1dac3ede4f6/output/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_7e411a400bd3dbef00287b937093a014ad9748f0/classes.dex" />
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_7e411a400bd3dbef00287b937093a014ad9748f0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/harlock/.android/build-cache/ebf02cb7f3b40e5e451128a1c85e9933c68423a8/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_b73d5ac24bb3503a34dcf61755a716df6d8340b9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/harlock/.android/build-cache/bb52f45ddaea04eee5af53851a26df8975ff2425/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_3ad574643ff135dd3f71681f3eebda4e8782608b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/harlock/.android/build-cache/a41ae5e626d3bd77106897a71978e1981d037f05/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="be587097e648eabfb7f9eca23ab03369894e2d5d">
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_f4ccabc14933233d534a375ae9f92626fda2c4c9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/harlock/.android/build-cache/19d2bac9a7e68905cf4ba1f0dc87fd2dc607a13e/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="0a534044236cf81b002604643d23e7ca56bd1ee0">
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_b52908875acc8ed153825088084203d0a8502e2a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/harlock/.android/build-cache/c8b040704035f7c29992bb4ea3c41e34d30c9dde/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/home/harlock/icfastesg/blueME/app/build/intermediates/pre-dexed/debug/classes_05aed47015c9494d4d04aad223dc194c00b29466.jar" />
     </item>
 
 </items>

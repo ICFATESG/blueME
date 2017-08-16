@@ -76,28 +76,21 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         // Insere o MAC do usuário
         fireBase = new FireBase();
-        fireBase.getmUsuario().addValueEventListener(new ValueEventListener() {
+
+        fireBase.getUsuario(new FireBase.CallbackUsuario() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.getValue(Usuario.class) == null){
+            public void getUsuario(Usuario usuario) {
+                if(usuario == null){
                     Usuario u = new Usuario();
                     u.setBluetoothMAC(new BluetoothService().getBluetoothMacAddress(MainActivity.this));
-                    fireBase.updateUsuarioMAC(u);
+                    fireBase.updateUsuario(u);
                 }
-                Usuario u = dataSnapshot.getValue(Usuario.class);
-                if (u.getBluetoothMAC() == null){
-                         u.setBluetoothMAC(new BluetoothService().getBluetoothMacAddress(MainActivity.this));
-                         fireBase.updateUsuarioMAC(u);
-                     }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
+                if (usuario.getBluetoothMAC() == null){
+                    usuario.setBluetoothMAC(new BluetoothService().getBluetoothMacAddress(MainActivity.this));
+                    fireBase.updateUsuario(usuario);
+                }
             }
         });
-
-
 
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

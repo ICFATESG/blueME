@@ -73,7 +73,7 @@ public class CadastroActivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(u.getEmail(),u.getSenha());
             mAuth.signInWithEmailAndPassword(u.getEmail(),u.getSenha());
             FirebaseUser user = mAuth.getCurrentUser();
-            new FireBase().getmUsuario().setValue(u);
+            new FireBase().updateUsuario(u);
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage("Usuário criado com sucesso!")
                     .setCancelable(false)

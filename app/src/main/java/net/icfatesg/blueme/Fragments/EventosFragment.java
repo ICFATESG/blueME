@@ -35,7 +35,6 @@ public class EventosFragment extends Fragment {
 
     private RecyclerView.LayoutManager mLayoutManager;
     private RecyclerView recyclerView;
-    private List<Evento> eventos;
 
     public EventosFragment() {
     }
@@ -63,36 +62,22 @@ public class EventosFragment extends Fragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        eventos = new ArrayList<>();
-        new FireBase().getmEvento().addListenerForSingleValueEvent(new ValueEventListener() {
+        new FireBase().getEventos(new FireBase.CallbackEventos() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot child: dataSnapshot.getChildren()) {
-                    eventos.add(child.getValue(Evento.class));
-                }
-                recyclerView.setAdapter(new EventoAdapter(eventos));
+            public void getEventos(final List<Evento> eventoList) {
+                recyclerView.setAdapter(new EventoAdapter(eventoList));
 
                 recyclerView.addOnItemTouchListener(
                         new RecyclerItemClickListener(getContext(), new RecyclerItemClickListener.OnItemClickListener() {
                             @Override public void onItemClick(View view, int position) {
                                 Intent intent = new Intent(getActivity(),OficinasActivity.class);
-                                intent.putExtra("EVENTO",eventos.get(position));
+                                intent.putExtra("EVENTO",eventoList.get(position));
                                 startActivity(intent);
                             }
                         })
                 );
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
             }
         });
-
-
-
-
         return view;
     }
 

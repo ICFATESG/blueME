@@ -64,20 +64,18 @@ public class MinhaContaFragment extends Fragment {
         this.editTextEnderecoMACMinhaConta = (EditText)view.findViewById(R.id.editTextEnderecoMACMinhaConta);
         this.buttonConfirmarMinhaConta = (Button) view.findViewById(R.id.buttonConfirmarMinhaConta);
         // Seta os valores para edição
-        new FireBase().getmUsuario().addListenerForSingleValueEvent(new ValueEventListener() {
+        new FireBase().getUsuario(new FireBase.CallbackUsuario() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                editTextNomeCompletoMinhaConta.setText(dataSnapshot.getValue(Usuario.class).getNome());
-                editTextCPFMinhaConta.setText(dataSnapshot.getValue(Usuario.class).getCPF());
-                editTextEnderecoDeEmailMinhaConta.setText(dataSnapshot.getValue(Usuario.class).getEmail());
-                editTextEnderecoMACMinhaConta.setText(dataSnapshot.getValue(Usuario.class).getBluetoothMAC());
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
+            public void getUsuario(Usuario usuario) {
+                editTextNomeCompletoMinhaConta.setText(usuario.getNome());
+                editTextCPFMinhaConta.setText(usuario.getCPF());
+                editTextEnderecoDeEmailMinhaConta.setText(usuario.getEmail());
+                editTextEnderecoMACMinhaConta.setText(usuario.getBluetoothMAC());
             }
         });
+
+
+
 
         buttonConfirmarMinhaConta.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +94,8 @@ public class MinhaContaFragment extends Fragment {
                         {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                new FireBase().getmUsuario().setValue(u);
+                                new FireBase().updateUsuario(u);
+                                new FireBase().getmAuth().getCurrentUser().updateEmail(u.getEmail());
                             }
 
                         })

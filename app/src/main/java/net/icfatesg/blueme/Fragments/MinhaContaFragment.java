@@ -69,6 +69,9 @@ public class MinhaContaFragment extends Fragment {
             public void getUsuario(Usuario usuario) {
                 editTextNomeCompletoMinhaConta.setText(usuario.getNome());
                 editTextCPFMinhaConta.setText(usuario.getCPF());
+                if (usuario.getEmail().equals("")){
+                    usuario.setEmail(new FireBase().getmAuth().getCurrentUser().getEmail());
+                }
                 editTextEnderecoDeEmailMinhaConta.setText(usuario.getEmail());
                 editTextEnderecoMACMinhaConta.setText(usuario.getBluetoothMAC());
             }

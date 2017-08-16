@@ -53,6 +53,9 @@ public class FireBase {
     public void updateUsuario(Usuario usuario){
         this.mUsuario.setValue(usuario);
     }
+    public void inserirUsuario(Usuario usuario){
+        this.mUsuario.child(mUsuario.push().getKey()).setValue(usuario);
+    }
 
     private void keepOnThePhone(){
         this.mEvento.keepSynced(true);

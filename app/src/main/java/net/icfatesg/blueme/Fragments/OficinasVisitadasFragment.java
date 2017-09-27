@@ -94,15 +94,9 @@ public class OficinasVisitadasFragment extends Fragment {
                         fireDB.getOfificasVisitadas(new FireBase.CallbackOficinasVisitadas() {
                             @Override
                             public void getOficinasVisitadas(List<OficinaVisitada> oficinaVisitadaList) {
-                                List<OficinaVisitada> ofv = new ArrayList<OficinaVisitada>();
-                                for (OficinaVisitada of: oficinaVisitadaList) {
-                                    if(eventoList.get(position).getID().equals(of.getIDEVENTO())){
-                                        ofv.add(of);
-                                    }
-                                }
-                                recyclerView.setAdapter(new VisitadoAdapter(ofv));
+                                recyclerView.setAdapter(new VisitadoAdapter(oficinaVisitadaList));
                             }
-                        });
+                        },eventoList.get(position).getID());
 
                     }
 
@@ -124,18 +118,18 @@ public class OficinasVisitadasFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setLayoutManager(mLayoutManager);
-        try {
-
-            fireDB.getOfificasVisitadas(new FireBase.CallbackOficinasVisitadas() {
-                @Override
-                public void getOficinasVisitadas(List<OficinaVisitada> oficinaVisitadaList) {
-                    VisitadoAdapter adapter = new VisitadoAdapter(oficinaVisitadaList);
-                    recyclerView.setAdapter(adapter);
-                }
-            });
-        }catch (Exception e ){
-            Log.d("ERRO",e.getMessage());
-        }
+//        try {
+//
+//            fireDB.getOfificasVisitadas(new FireBase.CallbackOficinasVisitadas() {
+//                @Override
+//                public void getOficinasVisitadas(List<OficinaVisitada> oficinaVisitadaList) {
+//                    VisitadoAdapter adapter = new VisitadoAdapter(oficinaVisitadaList);
+//                    recyclerView.setAdapter(adapter);
+//                }
+//            });
+//        }catch (Exception e ){
+//            Log.d("ERRO",e.getMessage());
+//        }
 
     }
 

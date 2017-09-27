@@ -46,7 +46,7 @@ public class OficinasActivity extends AppCompatActivity {
                 public void getOficinas(List<Oficina> oficinaList) {
                     recyclerView.setAdapter(new OficinaAdapter(oficinaList));
                 }
-            });
+            },evento);
         }catch (Exception e){
             Log.d("ERRO",e.getMessage());
         }

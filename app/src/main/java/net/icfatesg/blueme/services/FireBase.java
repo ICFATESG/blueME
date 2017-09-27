@@ -38,7 +38,7 @@ public class FireBase {
         this.currentUser = mAuth.getCurrentUser();
         this.mEvento = FirebaseDatabase.getInstance().getReference().child("Evento");
         this.mUsuario = FirebaseDatabase.getInstance().getReference().child("Usuarios").child(currentUser.getUid());
-        this.mOficinasVisitadas = mUsuario.child("oficinaVisitadas");
+        this.mOficinasVisitadas = mUsuario;
         this.mOficinas = FirebaseDatabase.getInstance().getReference().child("Oficinas");
 
     }
@@ -71,8 +71,8 @@ public class FireBase {
         this.mUsuario.keepSynced(true);
     }
 
-    public void getOficinas(final CallbackOficinas callback){
-        this.mOficinas.addValueEventListener(new ValueEventListener() {
+    public void getOficinas(final CallbackOficinas callback,Evento evento){
+        this.mOficinas.child(evento.getID()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 List<Oficina> oficinas = new ArrayList<Oficina>();
@@ -88,8 +88,8 @@ public class FireBase {
             }
         });
     }
-    public void getOfificasVisitadas(final CallbackOficinasVisitadas callback){
-        this.mOficinasVisitadas.addValueEventListener(new ValueEventListener() {
+    public void getOfificasVisitadas(final CallbackOficinasVisitadas callback,String eventoID){
+        this.mOficinasVisitadas.child(eventoID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 List<OficinaVisitada> oficinas = new ArrayList<OficinaVisitada>();

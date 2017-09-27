@@ -2,7 +2,9 @@ package net.icfatesg.blueme.services;
 
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
+import android.util.Log;
 
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -39,6 +41,13 @@ public class FireBase {
         this.mOficinasVisitadas = mUsuario.child("oficinaVisitadas");
         this.mOficinas = FirebaseDatabase.getInstance().getReference().child("Oficinas");
 
+    }
+
+    public void salvarOfic(OficinaVisitada oficinaVisitada){
+        this.mOficinasVisitadas
+                .child(oficinaVisitada.getIDEVENTO())
+                .child(oficinaVisitada.getIDOFICINA())
+                .setValue(oficinaVisitada);
     }
 
 
@@ -85,7 +94,11 @@ public class FireBase {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 List<OficinaVisitada> oficinas = new ArrayList<OficinaVisitada>();
                 for (DataSnapshot child: dataSnapshot.getChildren()) {
-                    oficinas.add(child.getValue(OficinaVisitada.class));
+                    for (DataSnapshot childOf:child.getChildren()){
+                        OficinaVisitada of = childOf.getValue(OficinaVisitada.class);
+                        of.setIDEVENTO(child.getKey());
+                        oficinas.add(of);
+                    }
                 }
                 callback.getOficinasVisitadas(oficinas);
             }
@@ -118,7 +131,19 @@ public class FireBase {
         this.mUsuario.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                callback.getUsuario(dataSnapshot.getValue(Usuario.class));
+                try {
+                    Usuario u = new Usuario();
+                    dataSnapshot.getValue();
+                    u.setEmail(dataSnapshot.getValue(Usuario.class).getEmail());
+                    u.setNome(dataSnapshot.getValue(Usuario.class).getNome());
+                    u.setSenha(dataSnapshot.getValue(Usuario.class).getSenha());
+                    u.setBluetoothMAC(dataSnapshot.getValue(Usuario.class).getBluetoothMAC());
+                    u.setID(dataSnapshot.getValue(Usuario.class).getID());
+                    callback.getUsuario(u);
+                }catch (Exception e){
+                    Log.d("fatal",e.getMessage());
+                }
+
             }
 
             @Override

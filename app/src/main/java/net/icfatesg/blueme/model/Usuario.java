@@ -17,7 +17,6 @@ public class Usuario implements Parcelable {
     private String bluetoothMAC;
     private String email;
     private String senha;
-    private List<OficinaVisitada> oficinaVisitadas;
 
     public Usuario() {
         ID = "";
@@ -26,8 +25,8 @@ public class Usuario implements Parcelable {
         bluetoothMAC = "";
         email = "";
         senha = "";
-        this.oficinaVisitadas = new ArrayList<>();
     }
+
 
     public String getID() {
         return ID;
@@ -77,14 +76,6 @@ public class Usuario implements Parcelable {
         this.senha = senha;
     }
 
-    public List<OficinaVisitada> getOficinaVisitadas() {
-        return oficinaVisitadas;
-    }
-
-    public void setOficinaVisitadas(List<OficinaVisitada> oficinaVisitadas) {
-        this.oficinaVisitadas = oficinaVisitadas;
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -98,7 +89,6 @@ public class Usuario implements Parcelable {
         dest.writeString(this.bluetoothMAC);
         dest.writeString(this.email);
         dest.writeString(this.senha);
-        dest.writeTypedList(this.oficinaVisitadas);
     }
 
     protected Usuario(Parcel in) {
@@ -108,7 +98,6 @@ public class Usuario implements Parcelable {
         this.bluetoothMAC = in.readString();
         this.email = in.readString();
         this.senha = in.readString();
-        this.oficinaVisitadas = in.createTypedArrayList(OficinaVisitada.CREATOR);
     }
 
     public static final Creator<Usuario> CREATOR = new Creator<Usuario>() {

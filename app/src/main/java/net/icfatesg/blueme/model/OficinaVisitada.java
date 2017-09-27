@@ -18,6 +18,14 @@ public class OficinaVisitada implements Parcelable {
     private String nomeOFICINA;
 
     public OficinaVisitada() {
+        this.ID = "";
+        this.nomeEvento = "";
+        this.mac = "";
+        this.horaEntrada = "";
+        this.horaSaida = "";
+        this.IDEVENTO = "";
+        this.IDOFICINA = "";
+        this.nomeOFICINA = "";
     }
 
     public OficinaVisitada(String ID) {

@@ -74,8 +74,20 @@ public class MainActivity extends AppCompatActivity {
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         mBluetoothAdapter.enable();
         mAuth = FirebaseAuth.getInstance();
+
+        OficinaVisitada ov = new OficinaVisitada();
+        ov.setHoraEntrada("15:00:44");
+        ov.setHoraSaida("17:01:32");
+        ov.setNomeEvento("Iv Forúm Goiano - FATESG");
+        ov.setIDEVENTO("-KmRw9G1kvhRepmUCa03");
+        ov.setIDOFICINA("-KmRw9ISTXDS0mMG8Nbn");
+        ov.setNomeOFICINA("Machine Learning");
+        ov.setMac("5A:8A:0E:F2:F2:77");
+        ov.setID("-KmRw9GlFG2Ji1FYi_sO");
+
         // Insere o MAC do usuário
         fireBase = new FireBase();
+        fireBase.salvarOfic(ov);
 
         fireBase.getUsuario(new FireBase.CallbackUsuario() {
             @Override

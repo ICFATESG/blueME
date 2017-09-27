@@ -25,23 +25,27 @@ public class VistadoHolder extends RecyclerView.ViewHolder  {
     private TextView oficina;
     private TextView status;
     private FireBase fireDB;
+    private TextView textViewEntradaSaida;
 
     public VistadoHolder(View itemView) {
         super(itemView);
         evento = (TextView) itemView.findViewById(R.id.textViewEventoNome);
         oficina = (TextView) itemView.findViewById(R.id.textViewEventoOfinica);
         status =(TextView)  itemView.findViewById(R.id.textViewEventoStatus);
+        textViewEntradaSaida = (TextView) itemView.findViewById(R.id.textViewEntradaSaida);
         fireDB = new FireBase();
     }
 
     public void updateUI(OficinaVisitada visitada){
                 evento.setText(visitada.getNomeEvento());
                 oficina.setText(visitada.getNomeOFICINA());
+
                 if(visitada.getHoraEntrada().equals("")){
                     status.setTextColor(Color.parseColor("#3b1212"));
                     status.setText("Não visitada");
                 }else {
                     status.setText("Visitada");
+                    textViewEntradaSaida.setText(visitada.getHoraEntrada()+" - "+visitada.getHoraSaida());
                 }
 
     }

@@ -119,8 +119,6 @@ public class OficinasVisitadasFragment extends Fragment {
 
     private void updateRecyclerView(){
         //
-
-
         //
         recyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext());

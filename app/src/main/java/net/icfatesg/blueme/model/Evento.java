@@ -3,11 +3,8 @@ package net.icfatesg.blueme.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
- * Created by minerthal on 12/06/17.
+ * Created by harlock on 10/11/17.
  */
 
 public class Evento implements Parcelable {
@@ -17,29 +14,6 @@ public class Evento implements Parcelable {
     private String horaInicioEvento;
     private String horaFimEvento;
     private String descricao;
-
-    public Evento() {
-        this.ID = "";
-        this.nomeEvento = "";
-        LocalizacaoEvento = "";
-        this.horaInicioEvento = "";
-        this.horaFimEvento = "";
-        this.descricao = "";
-    }
-
-    public Evento(String ID, String nomeEvento, String localizacaoEvento, String horaInicioEvento, String horaFimEvento,String descricao) {
-        this.ID = ID;
-        this.nomeEvento = nomeEvento;
-        LocalizacaoEvento = localizacaoEvento;
-        this.horaInicioEvento = horaInicioEvento;
-        this.horaFimEvento = horaFimEvento;
-        this.descricao = descricao;
-    }
-
-    @Override
-    public String toString() {
-        return nomeEvento+" - "+LocalizacaoEvento;
-    }
 
     public String getID() {
         return ID;
@@ -90,6 +64,11 @@ public class Evento implements Parcelable {
     }
 
     @Override
+    public String toString() {
+        return  nomeEvento ;
+    }
+
+    @Override
     public int describeContents() {
         return 0;
     }
@@ -104,6 +83,9 @@ public class Evento implements Parcelable {
         dest.writeString(this.descricao);
     }
 
+    public Evento() {
+    }
+
     protected Evento(Parcel in) {
         this.ID = in.readString();
         this.nomeEvento = in.readString();
@@ -113,7 +95,7 @@ public class Evento implements Parcelable {
         this.descricao = in.readString();
     }
 
-    public static final Creator<Evento> CREATOR = new Creator<Evento>() {
+    public static final Parcelable.Creator<Evento> CREATOR = new Parcelable.Creator<Evento>() {
         @Override
         public Evento createFromParcel(Parcel source) {
             return new Evento(source);

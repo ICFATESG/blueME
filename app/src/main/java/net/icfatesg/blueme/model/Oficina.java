@@ -1,13 +1,10 @@
 package net.icfatesg.blueme.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 /**
- * Created by minerthal on 12/06/17.
+ * Created by harlock on 10/11/17.
  */
 
-public class Oficina implements Parcelable {
+public class Oficina {
     private String ID;
     private String IDEVENTO;
     private String nomeOficina;
@@ -15,26 +12,6 @@ public class Oficina implements Parcelable {
     private String local;
     private String horaInicio;
     private String horaFim;
-
-    public Oficina() {
-        ID = "";
-        IDEVENTO = "";
-        nomeOficina = "";
-        palestrante = "";
-        local = "";
-        horaInicio = "";
-        horaFim = "";
-    }
-
-    public Oficina(String ID, String IDEVENTO, String nomeOficina, String palestrante, String local, String horaInicio, String horaFim) {
-        this.ID = ID;
-        this.IDEVENTO = IDEVENTO;
-        this.nomeOficina = nomeOficina;
-        this.palestrante = palestrante;
-        this.local = local;
-        this.horaInicio = horaInicio;
-        this.horaFim = horaFim;
-    }
 
     public String getID() {
         return ID;
@@ -91,42 +68,4 @@ public class Oficina implements Parcelable {
     public void setHoraFim(String horaFim) {
         this.horaFim = horaFim;
     }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.ID);
-        dest.writeString(this.IDEVENTO);
-        dest.writeString(this.nomeOficina);
-        dest.writeString(this.palestrante);
-        dest.writeString(this.local);
-        dest.writeString(this.horaInicio);
-        dest.writeString(this.horaFim);
-    }
-
-    protected Oficina(Parcel in) {
-        this.ID = in.readString();
-        this.IDEVENTO = in.readString();
-        this.nomeOficina = in.readString();
-        this.palestrante = in.readString();
-        this.local = in.readString();
-        this.horaInicio = in.readString();
-        this.horaFim = in.readString();
-    }
-
-    public static final Creator<Oficina> CREATOR = new Creator<Oficina>() {
-        @Override
-        public Oficina createFromParcel(Parcel source) {
-            return new Oficina(source);
-        }
-
-        @Override
-        public Oficina[] newArray(int size) {
-            return new Oficina[size];
-        }
-    };
 }

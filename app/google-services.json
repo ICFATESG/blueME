@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "113538853283-qeljg0b10p85bq31bia2bgmoqb6064n4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.icfatesg.blueme",
+            "certificate_hash": "617c7fecfe15d5097f8bda278502d6aff612eecb"
+          }
+        },
+        {
           "client_id": "113538853283-a2tqivvmoruunajo8g939okiq4gbkj8n.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
